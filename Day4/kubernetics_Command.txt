@@ -26,3 +26,11 @@ $ kubectl logs my-pod
 
 5. Execute any command inside Pod (Inside Pod OS)
 $ kubectl exec <pod-name> -- <command>
+
+
+6. Pod creation
+ sudo nano <podname>
+ kubectl apply -f <podname>
+
+7. EXECUTE 
+$ kubectl exec -it my-pod -- /bin/sh
