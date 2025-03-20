@@ -1,0 +1,17 @@
+Control Plane /Master Node
+The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
+Control plane components can be run on any machine in the cluster. Do not run user containers on this machine. 
+Node Components / Worker Nodes
+Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.
+1.	Master Node: The master node is responsible for managing the cluster and coordinating the overall state of the system. It includes the following components:
+
+a.	API Server: The API server is the central control point for all interactions with the cluster. It exposes the Kubernetes API and handles requests from users and other components.
+
+b.	Scheduler: The scheduler is responsible for assigning workloads (pods) to individual worker nodes based on resource requirements, constraints, and other policies.
+
+c.	Controller Manager: The controller manager runs various controllers that monitor the cluster state and drive it towards the desired state. Examples include the replication controller, node controller, and service controller.
+
+d.	etcd: etcd is a distributed key-value store used by Kubernetes to store cluster state and configuration data.
+
+
+Pod: The basic building block of Kubernetes. A pod represents a single instance of a running process within the cluster. It can encapsulate one or more containers that share the same network and storage resources.

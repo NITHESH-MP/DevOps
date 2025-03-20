@@ -1,0 +1,28 @@
+1. Create a pod using run command
+$ kubectl run <pod-name> --image=<image-name> --port=<container-port>
+$ kubectl run my-pod --image=nginx --port=80
+
+2. View all the pods 
+(In default namespace)
+$ kubectl get pods 
+(In All namespace)
+
+$ kubectl get pods -A
+# For a specific namespace
+$ kubectl get pods -n kube-system
+
+# For a specific type
+$ kubectl get pods <pod-name> 
+$ kubectl get pods <pod-name> -o wide
+$ kubectl get pods <pod-name>  -o yaml
+$ kubectl get pods <pod-name>  -o json
+
+3. Describe a pod (View Pod details)
+$ kubectl describe pod <pod-name>
+$ kubectl describe pod my-pod
+4. View Logs of a pod
+$ kubectl logs <pod-name>
+$ kubectl logs my-pod
+
+5. Execute any command inside Pod (Inside Pod OS)
+$ kubectl exec <pod-name> -- <command>
