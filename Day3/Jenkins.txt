@@ -1,0 +1,18 @@
+JENKINS
+Jenkins is an open-source automation tool written in Java programming language that allows continuous integration. Jenkins offers a straightforward way to set up a continuous integration or continuous delivery environment for almost any combination of languages and source code repositories using pipelines, as well as automating other routine development tasks.
+The following are the main or most popular Jenkins use cases:
+●	Continuous Integration: With Jenkins pipelines, we can achieve CI for both applications and infrastructure as code.
+●	Continuous Delivery: You can set up well-defined and automated application delivery workflows with Jenkins pipelines.
+
+Jenkins achieves CI (Continuous Integration) and CD (Continuous Deployment) with the help of plugins. Plugins are used to allow the integration of various DevOps stages. If you want to integrate a particular tool, you must install the plugins for that tool.
+
+ADVANTAGES OF JENKINS:
+●	It is an open-source tool.
+●	It is free of cost.
+●	It does not require additional installations or components. Means it is easy to install.
+●	Easily configurable.
+●	It supports 1000 or more plugins to ease your work. If a plugin does not exist, you can write the script for it and share with community.
+●	It is built in java and hence it is portable.
+●	It is platform independent. It is available for all platforms and different operating systems. Like OS X, Windows, or Linux.
+●	Easy support since its open source and widely used.
+●	Jenkins also supports cloud-based architecture so that we can deploy Jenkins in cloud-based platforms.
