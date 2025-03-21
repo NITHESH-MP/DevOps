@@ -1,0 +1,10 @@
+Services (short name = svc):
+Service is an abstraction that defines a logical set of pods and a policy to access them. Services enable network connectivity and load balancing to the pods that are part of the service, allowing other components within or outside the cluster to interact with the application.
+Service Types: Kubernetes supports different types of services:
+1.	NodePort: Exposes the service on a static port on each selected node's IP. This type makes the service accessible from outside the cluster by the <NodeIP>:<NodePort> combination.
+
+2.	ClusterIP: Exposes the service on a cluster-internal IP. This type makes the service only reachable within the cluster.
+
+3.	LoadBalancer: Creates an external load balancer in cloud environments, which routes traffic to the service.
+
+
