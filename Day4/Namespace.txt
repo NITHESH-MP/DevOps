@@ -1,0 +1,23 @@
+Namespace (short name = ns):
+namespace is a virtual cluster or logical partition within a cluster that provides a way to organize and isolate resources. It allows multiple teams or projects to share the same physical cluster while maintaining resource separation and access control.
+
+# To create a namespace:
+$ kubectl create namespace <namespace-name>
+$ kubectl create ns my-bank
+# To switch to a specific namespace: (make this as default type)
+$ kubectl config set-context --current --namespace=<namespace-name>
+# To list all namespaces:
+$ kubectl get namespaces
+# To get resources within a specific namespace:
+$ kubectl get <resource-type> -n <namespace-name>
+$ kubectl get deploy -n my-bank
+$ kubectl get deploy --namespace my-bank
+$ kubectl get all --namespace my-bank
+# To delete a namespace and all associated resources:
+$ kubectl delete namespace <namespace-name>
+$ kubectl delete ns my-bank
+
+
+kubectl create ns mydeploy
+
+kubectl apply -f deploy.yml -n mydeploy
