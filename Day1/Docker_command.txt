@@ -1,0 +1,46 @@
+## Docker Commands
+
+
+### To check currently running containers
+
+    - docker ps
+
+
+### To check images
+
+    - docker images
+
+### To run the image 
+
+    - docker run -d -p 8085:8080 --name <name-of-the-container> <image-id>(need to assign both name and port)
+    - docker run -itd -p 8085:8080 <image-id> (-p represents we need to specify the port)
+    - docker run -itd -p 8085:8080 <image-id> (-p represents we need to specify the port)
+    - docker run -itd -P <image-id> (-P automaticaly assigns the port and name for the container)
+
+### To check the inside containers
+    - docker exec -it <Container-id> /bin/bash (tomcat)
+    - docker exec -it <Container-id> /bin/sh (nginx)
+
+### For manipulate html,
+
+    #### Traverse into the path
+
+        - usr/share/nginx/html
+
+    #### need to install nano || vim
+        
+        - apt update && apt install -y nano
+        - apt update && apt install -y vim
+
+    #### manipulate html file using,
+
+        - nano index.html || vi index.html
+
+### Docker compose is used to run multiple images (.yaml file)
+
+    #### Steps in the docker compose
+        
+        - docker-compose up -d
+        - docker-compose down -d
+        - docker-compose images
+        - docker-compose ps
