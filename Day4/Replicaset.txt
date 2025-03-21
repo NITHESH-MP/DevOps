@@ -1,0 +1,55 @@
+Yaml_File
+
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    name: my-rs
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      apptype: web-backend
+  template:
+    metadata:
+      labels:
+        apptype: web-backend
+    spec:
+      containers:
+      - name: my-app
+        image: 
+        ports:
+          - containerPort: 8080
+
+
+2. Create ReplicaSet by executing above YAML file
+$ kubectl create -f rs-test.yml
+# Do necessary modifications if exist, else create new
+$ kubectl apply -f rs-test.yml
+# Completely Modify Pod Template
+$ kubectl replace –f rs-test.yml
+
+3. View ReplicaSets 
+$ kubectl get replicasets
+$ kubectl get rs
+$ kubectl get rs –o wide
+$ kubectl get rs <replica-set-name> –o json
+$ kubectl get rs <replica-set-name> –o yaml
+
+4. View ReplicaSet Description 
+$ kubectl describe rs <replica-set-name>
+5. We can modify generated/updated YAML file
+$ kubectl edit rs <replica-set-name>
+## change replicas: count to any other value then (ESC):wq
+
+# We can modify our YAML file and then execute apply command
+$ kubectl apply -f rs-test.yml
+
+## We can Even scale using command also
+$ kubectl scale replicaset <replicaset-name> --replicas=<desired-replica-count>
+
+6. Delete ReplicaSet
+$ kubectl delete rs <replica-set-name>
+$ kubectl delete -f rs-test.yml
+
+
