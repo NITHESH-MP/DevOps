@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+      app: web-app
+	type: backend
+spec:
+  containers:
+    - name: web-app
+      image: nithesh04/web-app:latest
+      ports:
+        - containerPort: 80
