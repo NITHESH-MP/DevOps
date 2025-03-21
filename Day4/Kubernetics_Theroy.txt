@@ -1,3 +1,16 @@
+Kubernetes (K8s)
+
+Kubernetes is an open source container orchestration engine for automating deployment, scaling, and management of containerized applications. The open source project is hosted by the Cloud Native Computing Foundation (CNCF).
+It provides a scalable and resilient framework for automating the deployment, scaling, and management of applications across clusters of servers.
+
+A SMALL HISTORY OF K8S:
+	In the early 2000s, Google started developing a system called Borg to manage their internal containerized applications. 
+	Borg enabled Google to run applications at scale, providing features such as automatic scaling, service discovery, and fault tolerance.
+	In 2014, Google open-sourced a version of Borg called Kubernetes.
+	Kubernetes was donated to the Cloud Native Computing Foundation (CNCF), a neutral home for open-source cloud-native projects, in July 2015.
+	Kubernetes 1.8 added significant enhancements for storage, security, and networking. Key features included the stable release of the stateful sets API, expanded support for volume plugins, and improvements in security policies.
+	Check URL: https://kubernetes.io/releases/ for more release details.
+
 Control Plane /Master Node
 The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
 Control plane components can be run on any machine in the cluster. Do not run user containers on this machine. 
