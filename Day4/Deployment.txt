@@ -1,0 +1,55 @@
+Yaml file:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deploy
+  labels:
+    name: my-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      apptype: web-backend
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        apptype: web-backend
+    spec:
+      containers:
+      - name: my-app
+        image:         
+        ports:
+              - containerPort: 7070
+
+
+2. Create Deployment by executing above YAML file
+$ kubectl create -f web-deploy.yml
+# Do necessary modifications if exist, else create new
+$ kubectl create -f web-deploy.yml
+# Completely Modify Pod Template
+$ kubectl replace –f web-deploy.yml
+
+3. View Deployments
+$ kubectl get deployments
+$ kubectl get deploy
+$ kubectl get deploy -o wide
+$ kubectl get deploy <deployment-name> -o json
+$ kubectl get deploy <deployment-name> -o yaml
+4. View Deployment Description 
+$ kubectl describe deploy <deployment-name>
+5. We can modify generated/updated YAML file
+$ kubectl edit deploy <deployment-name>
+## change replicas: count to any other value then (ESC):wq
+
+# We can modify our YAML file and then execute apply command
+$ kubectl apply -f web-deploy.yml
+
+## We can Even scale using command also
+$ kubectl  scale  deploy  <deployment-name>   --replicas=<desired-replica-count>
+
+6. Delete Deployment
+$ kubectl delete deploy <deployment-name>
+$ kubectl delete -f web-deploy.yml
