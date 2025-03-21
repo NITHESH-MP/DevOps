@@ -1,0 +1,20 @@
+Granting Jenkins Sudo Privileges* – The jenkins ALL=(ALL) NOPASSWD: ALL entry in the sudoers file allows the Jenkins user to run any command without a password prompt.
+
+	Restarting SSH Services* – Commands like sudo systemctl restart ssh.service and sudo systemctl restart sshd.service restart the SSH service, ensuring remote login functionality.
+
+	Installing OpenSSH Server* – The commands sudo apt update and sudo apt install openssh-server update package lists and install the OpenSSH server for secure remote access.
+
+	Checking SSH Service Status* – sudo systemctl status ssh checks if the SSH service is running and displays its current status.
+
+	Systemd Service File Lookup* – ls /etc/systemd/system/sshd.service or ls /usr/lib/systemd/system/sshd.service helps locate the SSH daemon’s systemd service file.
+
+	Reloading Systemd Daemon* – sudo systemctl daemon-reload ensures that systemd picks up changes in service configurations without requiring a reboot.
+
+	Encoding Minikube Certificate* – cat /home/david/.minikube/ca.crt | base64 -w 0; echo encodes the Minikube CA certificate in base64 format, likely for authentication.
+
+	Changing Docker Socket Permissions* – sudo chmod 666 /var/run/docker.sock grants read and write access to all users for Docker’s Unix socket, allowing non-root users to interact with Docker.
+
+	Deploying Kubernetes Resources* – sh 'kubectl apply -f deployment.yml --validate=false' applies a Kubernetes deployment file, ignoring
+ validation errors.
+
+	Accessing Minikube Service* – minikube service my-service --url | xargs curl retrieves the Minikube service URL and sends an HTTP request to test its accessibility.

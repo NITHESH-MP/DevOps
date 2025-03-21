@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('scm') {
+            steps {
+        git branch: 'https://github.com/NITHESH-MP/web-app.git'
+            }
+        }
+        stage('builb-clean') {
+            steps {
+               sh "mvn clean"
+}
+}
+        stage('build-validate') {
+            steps {
+               sh "mvn validate"
+}
+}
+        stage('build-com') {
+            steps {
+               sh "mvn compile"
+}
+}
+
+        stage('build-test') {
+            steps {
+               sh "mvn test"
+}
+}
+        stage('build-install') {
+            steps {
+               sh "mvn package"
+}
+}
+stage('build to images') {
+            steps {
+               script{
+                  sh 'docker build -t nithesh04/web-app .'
+               }
+    }
+}
+stage('push to hub') {
+            steps {
+               script{
+                 withDockerRegistry(credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') {
+                  sh 'docker push nithesh04/web-app'
+               }
+            }
+            }
+}
+        stage('Deploy App') {
+            steps {
+                withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'mukubeconfig_011', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+                sh 'kubectl apply -f deployment.yml --validate=false'
+            }
+        }
+        }
+    stage('Test') {
+      steps {
+          withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'mukubeconfig_011', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+      
+        sh 'minikube service my-service --url | xargs curl'
+   }
+}
+}
+}
+}

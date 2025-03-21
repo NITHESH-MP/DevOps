@@ -1,0 +1,16 @@
+jenkins ALL=(ALL) NOPASSWD: ALL
+ sudo systemctl restart ssh.service
+sudo systemctl restart sshd.service
+sudo apt update
+sudo apt install openssh-server
+ sudo systemctl restart ssh
+sudo systemctl status ssh
+ls /etc/systemd/system/sshd.service or ls /usr/lib/systemd/system/sshd.service
+ sudo systemctl daemon-reload
+sudo systemctl status ssh
+sudo systemctl restart ssh.service
+cat /home/david/.minikube/ca.crt | base64 -w 0; echo
+sudo chmod 666 /var/run/docker.sock
+[https://192.168.39.226:8443](https://192.168.39.226:8443/)
+sh 'kubectl apply -f deployment.yml --validate=false'
+minikube service my-service --url | xargs curl
